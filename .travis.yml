@@ -7,5 +7,6 @@ after_success:
 before_install:
 - openssl aes-256-cbc -K $encrypted_5a9ddd7b2b74_key -iv $encrypted_5a9ddd7b2b74_iv
   -in se234.pem.enc -out se234.pem -d
+- sudo chmod 400 se234.pem
 ssh_known_hosts:
 - 54.255.174.42
