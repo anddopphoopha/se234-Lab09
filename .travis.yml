@@ -1,6 +1,10 @@
 language: node_js
-
 install: true
 script: true
 after_success:
-  - scp -i "se234.pem" -r html/* ubuntu@http://18.188.1.74:/var/www/html
+- scp -i "se234.pem" -r html/* ubuntu@http://18.188.1.74:/var/www/html
+before_install:
+  - openssl aes-256-cbc -k "$super_secret_password" -in se234.pem.enc -out se234.pem -d
+env:
+  global:
+    secure: RvP1Ebs+A60iqjVLYgHQVZUgqSxfKvbByVpNyQvrfus1hdNiYd3pm+zbpBC8Aq4HSnS7e+4h+27UB2CUWED2znmeFlrOsx53tzNaO74S7CvKwWkzDUFHyzqIprya6/s49bO3nU/T58y0IPNplfqItq95hA9ZN4qKxyRIvVXlMGJcTGitqliBDbKXzqgkq9ePZf4xjAg7PMzF/DFikBxa/ba7q5SiBw7PK1W01/1FrduT0VRai2ADrhuFxrTWjTdODJm/QBdlwUCnds97Cjr+E9ryw8sw5Q2GPrdSidjVlR34/aDvoJj2SG/vFhpVqLVW/FmBj/ZxtUX6UAS39nIw7RTyCX0mC4uioz9ed8JqKFweYXKj2J0qFOnIXvB2SRGT+eGJAXP4oZAakrZdxSSvy2xAEJ7fH42mK3BSGIiAKK8Qyb3wZ+29JA+ji6dwS3j2ADHjYbiWTxsuuomL1jni+qufTMojCJ544ZI7mJqfWkavi7tEM0XJvDbEoVDTUlHRiZxQuw/u0dGys2/TKcS4B9TIhorTNcYGJN1uB1qPtxa1i3IqZjWxqV+wJf1I3Ru7arU69CEZ0CdrjK0nteqrZQMFqFb7uz2Np/SSSCTctnHTrjFLy4HPqXihxEFNE3K3c+tZFmFc2x4kI2+iPdZUrZycNH97Y4WTb3uxJkRobEs=
