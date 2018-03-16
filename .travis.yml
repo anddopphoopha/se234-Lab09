@@ -13,4 +13,4 @@ addons:
   - 54.255.174.42
 env:
   global:
-    secure: 
+    secure: $encrypted_5a9ddd7b2b74_key -iv $encrypted_5a9ddd7b2b74_iv
