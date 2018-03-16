@@ -6,7 +6,8 @@ after_success:
 - ls -l
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in se234.pem.enc -out se234.pem -d
-addons:
+  - sudo chmod 400 se234.pem
+  addons:
   ssh_known_hosts:
     - 18.188.1.74
 env:
